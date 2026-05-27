@@ -56,6 +56,7 @@ REST APIs:
 - Monitor login and transaction activities
 
 ## 4. Project Structure
+```txt
 my-app/
 │
 ├── backend/
@@ -103,6 +104,7 @@ my-app/
 ├── README.md
 ├── vite.config.js
 └── .gitignore
+```
 
 ### Folder Description
 **backend/**
