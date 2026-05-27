@@ -1,0 +1,103 @@
+
+import React, {useState} from 'react';
+
+function TransactionForm({saveExpense, setIsFormOpen}) {
+    const [transactionType, setTransactionType] = useState("Income");
+    const [transactionAmount, setTransactionAmount] = useState("");
+    const [transactionDate, setTransactionDate] = useState("");
+    const [transactionDescription, setTransactionDescription] = useState("");
+    const [transactionCategory, setTransactionCategory] = useState("");
+
+    function handleTransactionType(event){
+        setTransactionType(event.target.value);
+    }
+
+    function handleTransactionAmount(event){
+        setTransactionAmount(event.target.value);
+    }
+
+    function handleTransactionDate(event){
+        setTransactionDate(event.target.value);
+    }
+
+    function handleTransactionDescription(event){
+        setTransactionDescription(event.target.value);
+    }
+
+    function handleTransactionCategory(event){
+        setTransactionCategory(event.target.value);
+    }
+
+    function handleSubmit(event){
+        event.preventDefault();
+        
+        const newExpense = {
+            title: transactionDescription,
+            type: transactionType,
+            amount: Number(transactionAmount),
+            date: transactionDate,
+            description: transactionDescription,
+            category: transactionCategory
+        };
+
+        saveExpense(newExpense);
+        
+        setTransactionAmount("");
+        setTransactionDate("");
+        setTransactionDescription("");
+        setTransactionCategory("");
+        setIsFormOpen(false);
+    }
+
+    return (
+        <div className="add-transaction-form">
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="transactionType">Type</label>
+                <select name="transactionType" 
+                        id="transactionType" 
+                        value={transactionType} 
+                        onChange={handleTransactionType}>
+                    <option value="Income">Income</option>
+                    <option value="Expense">Expense</option>
+                </select>
+
+                <label htmlFor="transactionAmount">Amount</label>
+                <input type="number" 
+                    id="transactionAmount"
+                    value={transactionAmount}
+                    onChange={handleTransactionAmount}>
+                </input>
+
+                <label htmlFor="transactionDate">Date</label>
+                <input
+                    type="date"
+                    id="transactionDate"
+                    value={transactionDate}
+                    onChange={handleTransactionDate}>
+                </input>
+
+                <label htmlFor="transactionDescription">Description</label>
+                <input
+                    type="text"
+                    id="transactionDescription"
+                    value={transactionDescription}
+                    onChange={handleTransactionDescription}>
+                </input>
+
+                <label htmlFor="transactionCategory">Category</label>
+                <input
+                    type="text"
+                    id="transactionCategory"
+                    value={transactionCategory}
+                    onChange={handleTransactionCategory}>
+                </input>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        
+    );
+
+}
+
+export default TransactionForm

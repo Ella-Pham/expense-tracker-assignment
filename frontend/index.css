@@ -1,0 +1,566 @@
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+header h1 {
+    text-align: center;
+    font-size: 32px;
+}
+
+header img {
+    width: 90px;
+    margin-bottom: 16px;
+}
+
+body {
+    background:#F5F5F7;
+    color:#1E1E1E;
+}
+
+header img {
+    display: inline;
+}
+
+.navbar ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+}
+
+.navbar li {
+    padding: 15px;
+    text-decoration: none;
+    display: block;
+    justify-content: space-evenly;
+    text-align: center;
+    float: left;
+}
+
+.navbar li:hover {
+    background-color: hsl(160, 34%, 51%);
+}
+
+.summary-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.listTransactions {
+    padding: 16px 0;
+    border-bottom: 1px solid #E8E8EA;
+    cursor: pointer;
+}
+
+.listTransactions:hover {
+    background-color: #F1F1F3;
+    border-radius: 16px;
+}
+
+.selected {
+    background-color: #EAF3FF;
+    border-radius: 16px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.transaction-list {
+    margin-top: 16px;
+}
+
+.transaction-row {
+    display: flex;
+    align-items: center;
+}
+
+.transaction-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
+
+.transaction-description {
+    font-weight: 600;
+    font-size: 16px;
+    color: #1E1E1E;
+    line-height: 1.2;
+}
+
+.transaction-category {
+    font-size: 13px;
+    color: #7A7A7A;
+    margin-top: 4px;
+    line-height: 1.2;
+}
+
+.transaction-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #EAF3FF;
+    color: #1E1E1E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 18px;
+    margin-right: 14px;
+    flex-shrink: 0;
+}
+
+.transaction-amount {
+    margin-left: auto;
+    text-align: right;
+    font-weight: 700;
+    font-size: 16px;
+    min-width: 96px;
+    color: #1E1E1E;
+}
+
+.transaction-header {
+    display:flex;
+    justify-content: space-between;
+    align-items:flex-start;
+}
+
+.transaction-left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.transaction-header h2 {
+    color: #1E1E1E;
+}
+
+.transaction-date-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top:24px;
+    margin-bottom: 10px;
+    padding: 0 4px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #1E1E1E;
+}
+
+.transaction-date-list {
+    background: #FFFFFF;
+    border-radius: 24px;
+    padding: 8px 16px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+}
+
+.Income .transaction-amount {
+    color: #1fd1a5;
+}
+
+.Expense .transaction-amount {
+    color: #1E1E1E;
+}
+
+.add-transaction-form, .edit-transaction-form {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.add-transaction-form form, .edit-transaction-form form {
+    width: 420px;
+    max-width: 90%;
+    background: #FFFFFF;
+    border: 1px solid #E8E8EA;
+    border-radius: 18px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+}
+
+.add-transaction-form label, .edit-transaction-form label {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1E1E1E;
+}
+
+.add-transaction-form input, .add-transaction-form select, .edit-transaction-form input, .edit-transaction-form select {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.12);
+    background-color: #F7F7F8;
+    color: #1E1E1E;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+.add-transaction-form button, .edit-transaction-form button {
+    padding: 12px 14px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.add-transaction-form button[type="submit"], .edit-transaction-form button[type="submit"] {
+    background-color: #1A73E8;
+    color: #f4f4f4;
+}
+
+.add-transaction-form button[type="button"], .edit-transaction-form button[type="button"] {
+    background-color: #2a2f3f;
+    color: #f4f4f4;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.menu > button {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    border: none;
+    background: #F1F1F3;
+    color: #1E1E1E;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.action {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 260px;
+    max-width: 260px;
+    background: #FFFFFF;
+    backdrop-filter: blur(12px);
+    border-radius: 18px;
+    padding: 8px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+    border: 1px solid #E8E8EA;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.action button, .filter-action button {
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: none;
+    color: #1E1E1E;
+    padding: 12px 14px;
+    border-radius: 12px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.action button:hover, .filter-action button:hover {
+    background: #F1F1F3;
+}
+
+.filter-parent {
+    position: relative;
+}
+
+.filter-action {
+    position: absolute;
+    top: 0;
+    right: calc(100% + 8px);
+    width: 180px;
+    background: #FFFFFF;
+    backdrop-filter: blur(12px);
+    border-radius: 18px;
+    padding: 8px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+    border: 1px solid #E8E8EA;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.box {
+    width: 220px;
+    min-height: 120px;
+    background: #FFFFFF;
+    border-radius: 22px;
+    padding: 22px 22px 18px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    border: 1px solid #E8E8EA;
+}
+
+.box h2 {
+    margin: 0 0 18px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #7A7A7A;
+}
+
+.box p {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 700;
+    color: #1E1E1E;
+}
+
+.empty-state {
+    padding: 20px;
+    text-align: center;
+    color: #7A7A7A;
+    font-size: 16px;
+}
+
+.user-list {
+    background: #FFFFFF;
+    border-radius: 24px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+    overflow: hidden;
+}
+
+.user-row {
+    display: grid;
+    grid-template-columns: 0.6fr 1.4fr 2fr 1fr 1fr;
+    align-items: center;
+    padding: 18px 20px;
+    border-bottom: 1px solid #E8E8EA;
+    font-size: 16px;
+}
+
+.user-header {
+    font-weight: 700;
+    color: #1A73E8;
+    font-size: 18px;
+}
+
+.user-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #EAF3FF;
+    color: #1E1E1E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.user-row button {
+    background: #FF6B6B;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 14px;
+}
+
+.activity-list {
+    background: #FFFFFF;
+    border-radius: 24px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.activity-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.4fr 2fr;
+    align-items: center;
+    padding: 18px 20px;
+    border-bottom: 1px solid #E8E8EA;
+    font-size: 16px;
+}
+
+.activity-header {
+    font-weight: 700;
+    color: #1A73E8;
+    font-size: 18px;
+}
+
+.activity-username-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.activity-username-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #EAF3FF;
+    color: #1E1E1E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.navbar {
+    width: fit-content;
+    margin: 24px auto;
+    padding: 8px;
+    background: #E5E5E8;
+    border-radius: 999px;
+    display: flex;
+    gap: 4px;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.navbar a,
+.navbar button {
+    padding: 14px 32px;
+    border-radius: 999px;
+    border: none;
+    background: transparent;
+    color: #1E1E1E;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.navbar a:hover,
+.navbar button:hover {
+    background: #FFFFFF;
+    color: #1A73E8;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.search-engine {
+    width: 420px;
+    max-width: 520px;
+    height: 56px;
+    background: #FFFFFF;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+
+.search-engine input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 18px;
+    color: #1E1E1E;
+}
+
+.search-engine input::placeholder {
+    color: #B8B8B8;
+}
+
+.search-engine span {
+    font-size: 26px;
+}
+
+.user-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+}
+
+.user-form {
+    width: 100%;
+    max-width: 560px;
+    background-color: white;
+    border-radius: 18px;
+    padding: 48px 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.user-form-subtitle {
+    margin: 0 0 12px 0;
+    font-size: 26px;
+    font-weight: 500;
+    color: #444;
+    text-align: center;
+}
+
+.user-form input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 18px 28px;
+    border: 1.5px solid #d8d8d8;
+    border-radius: 999px;
+    font-size: 18px;
+    outline: none;
+    background-color: white;
+}
+
+.user-form input::placeholder {
+    color: #aaa;
+}
+
+.user-form input:focus {
+    border-color: #0d7bea;
+}
+
+.user-form-button {
+    width: 100%;
+    padding: 18px;
+    border: none;
+    border-radius: 999px;
+    background-color: #0d7bea;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+.user-form-button:hover {
+    background-color: #086fd5;
+}
+
+.user-form-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.error {
+    margin: 0;
+    color: #7A7A7A;
+    font-size: 14px;
+    text-align: center;
+}
